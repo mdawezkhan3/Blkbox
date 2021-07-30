@@ -4,17 +4,6 @@ import { useHistory } from "react-router-dom";
 import { Tabs, Tab, AppBar, Toolbar } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    [theme.breakpoints.down("xs")]: {
-      flexGrow: 1
-    }
-  },
   headerOptions: {
     display: "flex",
     flex: 1,
@@ -26,18 +15,15 @@ const Header = () => {
   const classes = useStyles();
   const history = useHistory();
 
-
   return (
-    <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: '#000000' }}>
+    <>
+      <AppBar position="static" style={{ backgroundColor: '#20211f' }}>
         <Toolbar>
           <div style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}} onClick={() => history.push("/")} >
             <div style={{border: "1px solid white", padding: '5px', marginRight: '8px'}}>
               BLK
             </div>
-            <div>
-              Blkbox
-            </div>
+            Blkbox
           </div>
           <div className={classes.headerOptions}>
             <Tabs value={0} >
@@ -47,7 +33,7 @@ const Header = () => {
           </div>
         </Toolbar>
       </AppBar>
-    </div>
+    </>
   );
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
-import Screen1 from './components/Screen1';
-import Screen2 from './components/Screen2';
+import Header from "./components/Header/Header";
+import Screen1 from './components/Screen1/Screen1';
+import Screen2 from './components/Screen2/Screen2';
 import './App.css';
 
 
