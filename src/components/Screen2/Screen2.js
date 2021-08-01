@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ReactPlayer from 'react-player';
-import FramesList from "./FramesList";
+import Screen2FramesList from "./Screen2FramesList";
 import Screen2Details from "./Screen2Details";
+import VideoPlayer from "./VideoPlayer";
 
 const Screen2 = () => {
 
@@ -18,41 +18,15 @@ const Screen2 = () => {
   }, [])
 
 
-  
-  const VideoPlayer = () => {
-
-    if(screen2.length > 0) {
-      return (
-        <div style={{display: 'flex', justifyContent: 'center'}}>
-              <ReactPlayer
-                  url={screen2[currentPlayingIndex].url}
-                  onEnded={() => {
-                    if(currentPlayingIndex === screen2.length - 1) {
-                      setCurrentPlayingIndex(0)
-                    } else {
-                      setCurrentPlayingIndex(currentPlayingIndex + 1)
-                    }
-                  }}
-                  playing
-                  onProgress ={(play) => {
-                    console.log(play);
-                  }}
-                  controls
-                  muted
-              />
-            </div>
-      )
-    } else {
-      return null;
-    }
-  }
-
-
   return (
     <div style={{margin: '50px'}}>
       <Screen2Details />
-      <VideoPlayer/>
-      <FramesList screen2={screen2} />
+      <VideoPlayer 
+        screen2={screen2} 
+        currentPlayingIndex={currentPlayingIndex} 
+        handleVideoChange={(playingIndex) => setCurrentPlayingIndex(playingIndex)} 
+      />
+      <Screen2FramesList screen2={screen2} />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const FramesList = ({ screen2 }) => {
+const Screen2FramesList = ({ screen2 }) => {
 
   return (
     <div style={{display: 'flex', justifyContent: 'center', marginTop: '60px'}} >
@@ -43,4 +43,4 @@ const FramesList = ({ screen2 }) => {
   );
 };
 
-export default FramesList;
+export default Screen2FramesList;
