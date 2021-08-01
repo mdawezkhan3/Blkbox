@@ -34,6 +34,9 @@ const Screen2 = () => {
                     }
                   }}
                   playing
+                  onProgress ={(play) => {
+                    console.log(play);
+                  }}
                   controls
                   muted
               />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Typography } from '@material-ui/core';
 
-const Screen2Details = ({  }) => {
+const Screen2Details = () => {
 
   return (
     <div style={{display: 'flex', justifyContent: 'space-between'}} >

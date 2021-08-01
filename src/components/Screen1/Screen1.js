@@ -7,15 +7,15 @@ import Screen1Details from "./Screen1Details";
 
 
 const Screen1 = () => {
-  const [screen1, setScreen1] = useState([]);
+  const [screen1Frames, setScreen1Frames] = useState([]);
   const [selectedFrameCount, setSelectedFrameCount] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
     async function fetchMyAPI() {
-      let screen1Response = await fetch('http://devserver.blkbox.ai/api/studio/creatives/step2');
-      screen1Response = await screen1Response.json();
-      setScreen1(screen1Response.data);
+      let screen1FramesResponse = await fetch('http://devserver.blkbox.ai/api/studio/creatives/step2');
+      screen1FramesResponse = await screen1FramesResponse.json();
+      setScreen1Frames(screen1FramesResponse.data);
     }
     fetchMyAPI();
   }, [])
@@ -25,30 +25,33 @@ const Screen1 = () => {
     <div style={{margin: '40px'}}>
       <Screen1Details selectedFrameCount={selectedFrameCount} />
       <div style={{display: 'flex', flexWrap: 'wrap', marginBottom: '50px'}}>
-        {screen1.map(item => {
+        {screen1Frames.map(frame => {
           return (
-            <div key={item.name} style={{position: 'relative', color: 'green', padding: '10px'}}>
+            <div key={frame.name} style={{position: 'relative', color: 'green', padding: '10px'}}>
               <video 
                 width="320" 
                 height="250" 
                 onClick={() => {
-                  if(!item.selected) {
+                  if(!frame.selected) {
                     setSelectedFrameCount(selectedFrameCount + 1);
-                    item.selected = 'true';
+                    frame.selected = true;
+                  } else if(frame.selected) {
+                    setSelectedFrameCount(selectedFrameCount - 1);
+                    frame.selected = false;
                   }
                 }}
               >
-                <source src={item.url} type="video/mp4"/>
+                <source src={frame.url} type="video/mp4"/>
               </video>
               <div style={{
                 position: 'absolute',
-                left: '70px', 
+                left: '70px',
                 bottom: '13px', 
                 width: '200px',
                 height: '42px',
                 backgroundColor: '#0cab0c', 
                 color: 'white', 
-                display: item.selected ? 'flex' : 'none',
+                display: frame.selected ? 'flex' : 'none',
                 alignItems: 'center', 
                 justifyContent: 'flex-start'
               }}>
