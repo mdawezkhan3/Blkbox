@@ -30,7 +30,6 @@ const Screen1 = () => {
     }
   }
 
-  console.log("frames ->>>", screen1Frames);
 
   return (
     <div style={{margin: '40px'}}>

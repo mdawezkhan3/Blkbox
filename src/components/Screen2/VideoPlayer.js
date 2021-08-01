@@ -16,9 +16,6 @@ import ReactPlayer from 'react-player';
                     }
                   }}
                   playing
-                  onProgress ={(play) => {
-                    console.log(play);
-                  }}
                   controls
                   muted
               />
